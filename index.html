@@ -1,1 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velo & Laser Footwear - Official Landing Page</title>
+    <!-- Memuat Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Memuat ikon Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Menggunakan font Inter untuk tampilan modern */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7; /* Warna latar belakang terang */
+        }
+        /* Custom CSS untuk warna utama brand (mengambil dari logo Velo/Laser) */
+        .color-velo {
+            color: #d9534f; /* Merah/Oranye Aksen */
+        }
+        .bg-velo {
+            background-color: #d9534f;
+        }
+        .border-velo {
+            border-color: #d9534f;
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        /* Style untuk Tab Aktif */
+        .tab-active {
+            border-bottom: 3px solid #d9534f;
+            color: #1f2937; /* Warna teks gelap */
+            font-weight: 600;
+        }
+        /* Styling untuk logo agar tetap responsif */
+        .logo-image {
+            max-height: 40px;
+            width: auto;
+        }
+        /* Menyembunyikan konten yang tidak aktif */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: grid; /* Menggunakan grid untuk layout kategori */
+        }
+    </style>
+</head>
+<body class="min-h-screen">
 
+    <!-- Kontainer Utama -->
+    <div id="app" class="max-w-4xl mx-auto p-4 md:p-8 bg-white shadow-xl rounded-xl mt-6 mb-6">
+
+        <!-- Header dan Logo -->
+        <header class="text-center mb-8 border-b pb-4">
+            <h1 class="text-3xl font-extrabold text-gray-800 mb-2 flex items-center justify-center">
+                <span class="mr-2">Selamat Datang di</span>
+                <img src="uploaded:VELO.png-b86813f3-cd41-4fee-8fec-5572cb89a3f7" alt="Logo Velo Footwear" class="logo-image mr-4" onerror="this.onerror=null;this.src='https://placehold.co/100x40/000/fff?text=VELO'">
+                <img src="uploaded:WhatsApp Image 2024-02-23 at 10.01.49.jpeg-88905a3a-4c73-4bc7-9a81-a9acdadc1d36" alt="Logo Laser" class="logo-image" onerror="this.onerror=null;this.src='https://placehold.co/100x40/000/d9534f?text=LASER'">
+            </h1>
+            <p class="text-gray-500 italic">"Melangkah Pasti" | Brand Footwear Terbaik untuk Keluarga Anda</p>
+        </header>
+
+        <!-- Galeri Instagram sebagai Banner/Promosi -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-gray-700 mb-4 flex items-center justify-start">
+                <i data-lucide="image" class="w-6 h-6 mr-2 color-velo"></i>
+                Koleksi Terbaru
+            </h2>
+            <div class="bg-gray-100 p-4 rounded-lg shadow-inner">
+                <p class="text-sm text-gray-600 mb-3">Dapatkan inspirasi dari tampilan Instagram kami:</p>
+                <!-- Placeholder untuk tampilan grid Instagram -->
+                <a href="https://www.instagram.com/velofootwear/" target="_blank" class="block">
+                    <img src="uploaded:image_e06239.jpg-c19caeb8-bb32-449d-8c32-be0e0b43f310" alt="Grid Instagram Velo Footwear" class="w-full h-auto rounded-lg shadow-md hover:shadow-lg transition duration-300" onerror="this.onerror=null;this.src='https://placehold.co/800x400/333/fff?text=Tampilan+Instagram+Terbaru'">
+                </a>
+                <p class="text-center mt-3">
+                    <a href="https://www.instagram.com/velofootwear/" target="_blank" class="inline-flex items-center text-sm font-medium color-velo hover:text-red-700 transition">
+                        Lihat Postingan Lainnya di Instagram
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Area Tabs untuk Brand Velo dan Laser -->
+        <section>
+            <h2 class="text-2xl font-bold text-gray-700 mb-6 flex items-center">
+                <i data-lucide="grip-vertical" class="w-6 h-6 mr-2 color-velo"></i>
+                Jelajahi Kategori Produk
+            </h2>
+
+            <!-- Tombol Tabs -->
+            <div class="flex border-b border-gray-200 mb-6">
+                <button id="tab-velo" class="tab-button py-3 px-6 text-gray-500 hover:text-gray-800 transition duration-150 tab-active" data-brand="velo">
+                    <img src="uploaded:VELO.png-b86813f3-cd11-4fec-8fec-5572cb89a3f7" alt="Velo" class="logo-image inline-block mr-2" style="max-height: 20px;">
+                    Velo
+                </button>
+                <button id="tab-laser" class="tab-button py-3 px-6 text-gray-500 hover:text-gray-800 transition duration-150" data-brand="laser">
+                    <img src="uploaded:WhatsApp Image 2024-02-23 at 10.01.49.jpeg-88905a3a-4c73-4bc7-9a81-a9acdadc1d36" alt="Laser" class="logo-image inline-block mr-2" style="max-height: 20px;">
+                    Laser
+                </button>
+            </div>
+
+            <!-- Konten Tabs -->
+            <div id="content-container">
+
+                <!-- Konten Velo -->
+                <div id="content-velo" class="tab-content active grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <!-- Kategori Velo: Sandal Dewasa -->
+                    <div class="bg-gray-50 rounded-lg p-5 shadow hover:shadow-lg transition duration-300 border-l-4 border-velo">
+                        <i data-lucide="footprints" class="w-8 h-8 color-velo mb-3"></i>
+                        <h3 class="font-bold text-lg text-gray-800">Sandal Dewasa</h3>
+                        <p class="text-sm text-gray-500 mb-3">Kenyamanan & gaya untuk kaki dewasa.</p>
+                        <a href="#" class="text-xs font-medium color-velo hover:underline">Lihat Semua Sandal →</a>
+                    </div>
+                    <!-- Kategori Velo: Sandal Anak -->
+                    <div class="bg-gray-50 rounded-lg p-5 shadow hover:shadow-lg transition duration-300 border-l-4 border-velo">
+                        <i data-lucide="hand-metal" class="w-8 h-8 color-velo mb-3"></i>
+                        <h3 class="font-bold text-lg text-gray-800">Sandal Anak</h3>
+                        <p class="text-sm text-gray-500 mb-3">Pilihan terbaik untuk si kecil.</p>
+                        <a href="#" class="text-xs font-medium color-velo hover:underline">Lihat Semua Sandal Anak →</a>
+                    </div>
+                    <!-- Kategori Velo: Sepatu Back To School -->
+                    <div class="bg-gray-50 rounded-lg p-5 shadow hover:shadow-lg transition duration-300 border-l-4 border-velo">
+                        <i data-lucide="graduation-cap" class="w-8 h-8 color-velo mb-3"></i>
+                        <h3 class="font-bold text-lg text-gray-800">Sepatu Back To School</h3>
+                        <p class="text-sm text-gray-500 mb-3">Siap sambut tahun ajaran baru!</p>
+                        <a href="#" class="text-xs font-medium color-velo hover:underline">Lihat Koleksi Sepatu →</a>
+                    </div>
+                </div>
+
+                <!-- Konten Laser -->
+                <div id="content-laser" class="tab-content grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Kategori Laser: Sandal Dewasa -->
+                    <div class="bg-gray-50 rounded-lg p-5 shadow hover:shadow-lg transition duration-300 border-l-4 border-black">
+                        <i data-lucide="footprints" class="w-8 h-8 text-black mb-3"></i>
+                        <h3 class="font-bold text-lg text-gray-800">Sandal Dewasa</h3>
+                        <p class="text-sm text-gray-500 mb-3">Desain sporty dan tangguh.</p>
+                        <a href="#" class="text-xs font-medium text-black hover:underline">Lihat Sandal Laser →</a>
+                    </div>
+                    <!-- Kategori Laser: Sandal Anak -->
+                    <div class="bg-gray-50 rounded-lg p-5 shadow hover:shadow-lg transition duration-300 border-l-4 border-black">
+                        <i data-lucide="hand-metal" class="w-8 h-8 text-black mb-3"></i>
+                        <h3 class="font-bold text-lg text-gray-800">Sandal Anak</h3>
+                        <p class="text-sm text-gray-500 mb-3">Kekuatan dan daya tahan untuk anak aktif.</p>
+                        <a href="#" class="text-xs font-medium text-black hover:underline">Lihat Sandal Anak Laser →</a>
+                    </div>
+                    <!-- Kategori Laser: Sepatu Back To School -->
+                    <div class="bg-gray-50 rounded-lg p-5 shadow hover:shadow-lg transition duration-300 border-l-4 border-black">
+                        <i data-lucide="graduation-cap" class="w-8 h-8 text-black mb-3"></i>
+                        <h3 class="font-bold text-lg text-gray-800">Sepatu Back To School</h3>
+                        <p class="text-sm text-gray-500 mb-3">Pilihan sepatu kasual untuk sekolah.</p>
+                        <a href="#" class="text-xs font-medium text-black hover:underline">Lihat Sepatu BTS Laser →</a>
+                    </div>
+                    <!-- Kategori Laser: Sepatu Sekolah -->
+                    <div class="bg-gray-50 rounded-lg p-5 shadow hover:shadow-lg transition duration-300 border-l-4 border-black">
+                        <i data-lucide="school" class="w-8 h-8 text-black mb-3"></i>
+                        <h3 class="font-bold text-lg text-gray-800">Sepatu Sekolah</h3>
+                        <p class="text-sm text-gray-500 mb-3">Sepatu hitam wajib untuk kegiatan sekolah.</p>
+                        <a href="#" class="text-xs font-medium text-black hover:underline">Lihat Sepatu Sekolah →</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Kontak dan Informasi Lain -->
+        <section class="mt-10 pt-6 border-t">
+            <h2 class="text-xl font-bold text-gray-700 mb-4 flex items-center">
+                <i data-lucide="phone" class="w-5 h-5 mr-2 color-velo"></i>
+                Informasi & Kontak
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">
+                <div>
+                    <p class="font-semibold text-gray-800 mb-1">Hubungi Kami:</p>
+                    <ul class="space-y-1">
+                        <li class="flex items-center"><i data-lucide="whatsapp" class="w-4 h-4 mr-2"></i> WhatsApp: <a href="#" class="ml-1 hover:underline">(+62) XXXX XXXX</a></li>
+                        <li class="flex items-center"><i data-lucide="mail" class="w-4 h-4 mr-2"></i> Email: <a href="#" class="ml-1 hover:underline">info@velofootwear.com</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="font-semibold text-gray-800 mb-1">Sosial Media & Belanja:</p>
+                    <div class="flex space-x-3">
+                        <a href="https://www.instagram.com/velofootwear/" target="_blank" class="text-gray-500 hover:text-pink-600 transition" title="Instagram">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </a>
+                        <!-- Link Shopee yang baru ditambahkan -->
+                        <a href="https://shopee.co.id/velodanlaser" target="_blank" class="text-gray-500 hover:text-red-500 transition" title="Belanja di Shopee">
+                            <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" target="_blank" class="text-gray-500 hover:text-blue-700 transition" title="Facebook">
+                            <i data-lucide="facebook" class="w-6 h-6"></i>
+                        </a>
+                        <!-- Ikon keranjang belanja yang sebelumnya tanpa link Shopee diubah menjadi tautan Shopee -->
+                        <a href="#" target="_blank" class="text-gray-500 hover:text-green-600 transition" title="E-commerce Lain">
+                            <i data-lucide="store" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center p-4 text-sm text-gray-500">
+        &copy; <span id="current-year"></span> Velo & Laser Footwear. All rights reserved.
+    </footer>
+
+    <script>
+        // Data kategori (tetap, tidak ada perubahan logika)
+        const categories = {
+            velo: [
+                { name: "Sandal Dewasa", description: "Kenyamanan & gaya untuk kaki dewasa.", icon: "footprints", link: "#" },
+                { name: "Sandal Anak", description: "Pilihan terbaik untuk si kecil.", icon: "hand-metal", link: "#" },
+                { name: "Sepatu Back To School", description: "Siap sambut tahun ajaran baru!", icon: "graduation-cap", link: "#" },
+            ],
+            laser: [
+                { name: "Sandal Dewasa", description: "Desain sporty dan tangguh.", icon: "footprints", link: "#" },
+                { name: "Sandal Anak", description: "Kekuatan dan daya tahan untuk anak aktif.", icon: "hand-metal", link: "#" },
+                { name: "Sepatu Back To School", description: "Pilihan sepatu kasual untuk sekolah.", icon: "graduation-cap", link: "#" },
+                { name: "Sepatu Sekolah", description: "Sepatu hitam wajib untuk kegiatan sekolah.", icon: "school", link: "#" },
+            ]
+        };
+
+        // Inisialisasi Lucide Icons
+        lucide.createIcons();
+
+        // Logika Tab
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const currentYearSpan = document.getElementById('current-year');
+
+            // Set tahun saat ini di footer
+            currentYearSpan.textContent = new Date().getFullYear();
+
+            function activateTab(brand) {
+                // Hapus kelas aktif dari semua tombol dan konten
+                tabButtons.forEach(button => button.classList.remove('tab-active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Tambahkan kelas aktif ke tombol dan konten yang sesuai
+                document.querySelector(`#tab-${brand}`).classList.add('tab-active');
+                document.querySelector(`#content-${brand}`).classList.add('active');
+
+                // Re-render Lucide icons pada konten yang baru aktif
+                // Ini penting karena ikon mungkin belum ter-render saat konten tersembunyi
+                lucide.createIcons();
+            }
+
+            // Tambahkan event listener ke setiap tombol tab
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const brand = button.getAttribute('data-brand');
+                    activateTab(brand);
+                });
+            });
+
+            // Aktifkan tab Velo secara default saat pertama kali dimuat
+            activateTab('velo');
+        });
+    </script>
+</body>
+</html>
